@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-const HasilKerja = ({ onTambah }) => {
+const ResikoBahaya = ({ onTambah }) => {
   const [formData, setFormData] = useState({
-    hasilKerja: "",
-    satuanHasil: "",
-    deleteStatus: false
+    namaResiko: "",
+    penyebab: "",
   });
 
   const handleChange = (e) => {
@@ -17,34 +16,34 @@ const HasilKerja = ({ onTambah }) => {
 
   const handleSubmit = () => {
     onTambah(formData);
-    setFormData({ hasilKerja: "", satuanHasil: "" }); // Clear form after adding
+    setFormData({ namaResiko: "", penyebab: "" }); // Clear form after adding
   };
 
   return (
     <div>
       <div className="bg-gray-100 p-4 border-b-2">
-        <p className="text-blue-600 font-medium">Hasil Kerja</p>
+        <p className="text-blue-600 font-medium">Resiko Bahaya</p>
       </div>
       <div className="flex flex-col gap-3 p-4">
         <div className="flex flex-col gap-2">
-          <p className="font-medium text-gray-500 text-lg">Hasil Kerja</p>
+          <p className="font-medium text-gray-500 text-lg">Nama Resiko</p>
           <input
             type="text"
-            name="hasilKerja"
+            name="namaResiko"
             className="border-gray-200 border-2 rounded-md px-2 py-1 text-gray-400"
-            placeholder="Masukkan Nama Jabatan"
-            value={formData.hasilKerja}
+            placeholder="Masukkan Nama Resiko"
+            value={formData.namaResiko}
             onChange={handleChange}
           />
         </div>
         <div className="flex flex-col gap-2">
-          <p className="font-medium text-gray-500 text-lg">Satuan Hasil</p>
+          <p className="font-medium text-gray-500 text-lg">Penyebab</p>
           <input
             type="text"
-            name="satuanHasil"
+            name="penyebab"
             className="border-gray-200 border-2 rounded-md px-2 py-1 text-gray-400"
-            placeholder="Masukkan Kode Jabatan"
-            value={formData.satuanHasil}
+            placeholder="Masukkan Penyebab"
+            value={formData.penyebab}
             onChange={handleChange}
           />
         </div>
@@ -67,4 +66,4 @@ const HasilKerja = ({ onTambah }) => {
   );
 };
 
-export default HasilKerja;
+export default ResikoBahaya;

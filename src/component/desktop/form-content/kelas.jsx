@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
-const HasilKerja = ({ onTambah }) => {
+const Kelas = ({ onTambah }) => {
   const [formData, setFormData] = useState({
-    hasilKerja: "",
-    satuanHasil: "",
-    deleteStatus: false
+    kelas: "",
   });
 
   const handleChange = (e) => {
@@ -17,34 +15,23 @@ const HasilKerja = ({ onTambah }) => {
 
   const handleSubmit = () => {
     onTambah(formData);
-    setFormData({ hasilKerja: "", satuanHasil: "" }); // Clear form after adding
+    setFormData({ kelas: ""}); // Clear form after adding
   };
 
   return (
     <div>
       <div className="bg-gray-100 p-4 border-b-2">
-        <p className="text-blue-600 font-medium">Hasil Kerja</p>
+        <p className="text-blue-600 font-medium">Kelas Jabatan</p>
       </div>
       <div className="flex flex-col gap-3 p-4">
         <div className="flex flex-col gap-2">
-          <p className="font-medium text-gray-500 text-lg">Hasil Kerja</p>
+          <p className="font-medium text-gray-500 text-lg">Kelas Kerja yang Diharapkan</p>
           <input
             type="text"
-            name="hasilKerja"
+            name="kelas"
             className="border-gray-200 border-2 rounded-md px-2 py-1 text-gray-400"
-            placeholder="Masukkan Nama Jabatan"
-            value={formData.hasilKerja}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="font-medium text-gray-500 text-lg">Satuan Hasil</p>
-          <input
-            type="text"
-            name="satuanHasil"
-            className="border-gray-200 border-2 rounded-md px-2 py-1 text-gray-400"
-            placeholder="Masukkan Kode Jabatan"
-            value={formData.satuanHasil}
+            placeholder="Masukkan Kelas Jabatan"
+            value={formData.kelas}
             onChange={handleChange}
           />
         </div>
@@ -67,4 +54,4 @@ const HasilKerja = ({ onTambah }) => {
   );
 };
 
-export default HasilKerja;
+export default Kelas;

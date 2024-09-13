@@ -7,6 +7,7 @@ import Mobile from "../component/mobile/mobileview";
 
 const Dashboard = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [activeMenu, setActiveMenu] = useState();
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,11 +34,11 @@ const Dashboard = () => {
           className={`relative w-60 h-full overflow-y-auto overflow-x-hidden scrollbar-custom`}
           style={{ "--scrollbar-track-color": "#add8e6" }}
         >
-          <SideBar />
+          <SideBar onSelectMenuItem={setActiveMenu}/>
         </div>
         <div className="flex-1 overflow-y-auto scrollbar-custom p-4">
           {/* Content */}
-          <Content />
+          <Content selectedMenuItem={activeMenu} />
         </div>
       </div>
     </div>

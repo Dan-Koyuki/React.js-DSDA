@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-const HasilKerja = ({ onTambah }) => {
+const PerangkatKerja = ({ onTambah }) => {
   const [formData, setFormData] = useState({
-    hasilKerja: "",
-    satuanHasil: "",
-    deleteStatus: false
+    perangkatKerja: "",
+    penggunaanUntukTugas: "",
   });
 
   const handleChange = (e) => {
@@ -17,34 +16,34 @@ const HasilKerja = ({ onTambah }) => {
 
   const handleSubmit = () => {
     onTambah(formData);
-    setFormData({ hasilKerja: "", satuanHasil: "" }); // Clear form after adding
+    setFormData({ perangkatKerja: "", penggunaanUntukTugas: "" }); // Clear form after adding
   };
 
   return (
     <div>
       <div className="bg-gray-100 p-4 border-b-2">
-        <p className="text-blue-600 font-medium">Hasil Kerja</p>
+        <p className="text-blue-600 font-medium">Perangkat Kerja</p>
       </div>
       <div className="flex flex-col gap-3 p-4">
         <div className="flex flex-col gap-2">
-          <p className="font-medium text-gray-500 text-lg">Hasil Kerja</p>
+          <p className="font-medium text-gray-500 text-lg">Perangkat Kerja</p>
           <input
             type="text"
-            name="hasilKerja"
+            name="perangkatKerja"
             className="border-gray-200 border-2 rounded-md px-2 py-1 text-gray-400"
-            placeholder="Masukkan Nama Jabatan"
-            value={formData.hasilKerja}
+            placeholder="Masukkan Perangkat Kerja"
+            value={formData.perangkatKerja}
             onChange={handleChange}
           />
         </div>
         <div className="flex flex-col gap-2">
-          <p className="font-medium text-gray-500 text-lg">Satuan Hasil</p>
+          <p className="font-medium text-gray-500 text-lg">Penggunaan Untuk Tugas</p>
           <input
             type="text"
-            name="satuanHasil"
+            name="penggunaanUntukTugas"
             className="border-gray-200 border-2 rounded-md px-2 py-1 text-gray-400"
-            placeholder="Masukkan Kode Jabatan"
-            value={formData.satuanHasil}
+            placeholder="Masukkan Penggunaan Untuk Tugas"
+            value={formData.penggunaanUntukTugas}
             onChange={handleChange}
           />
         </div>
@@ -67,4 +66,4 @@ const HasilKerja = ({ onTambah }) => {
   );
 };
 
-export default HasilKerja;
+export default PerangkatKerja;

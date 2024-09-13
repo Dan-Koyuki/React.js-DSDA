@@ -1,6 +1,7 @@
 import React from "react";
+import { MdDelete } from "react-icons/md";
 
-const HasilKerjaAdds = ({ data }) => {
+const HasilKerjaAdds = ({ data, onDelete}) => {
   return (
     <div>
       <div className="bg-gray-100 p-4 border-b-2">
@@ -12,6 +13,7 @@ const HasilKerjaAdds = ({ data }) => {
             <tr>
               <th className="px-4 py-2">Hasil Kerja</th>
               <th className="px-4 py-2">Satuan Hasil</th>
+              <th className="px-4 py-2 w-1/12">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -19,6 +21,15 @@ const HasilKerjaAdds = ({ data }) => {
               <tr key={index}>
                 <td className="border px-4 py-2">{item.hasilKerja}</td>
                 <td className="border px-4 py-2">{item.satuanHasil}</td>
+                <td className="border px-4 py-2 flex justify-center items-center">
+                  {!item.deleteStatus ? (
+                    <MdDelete
+                      className=" border border-gray-300 rounded-md cursor-pointer"
+                      size={25}
+                      onClick={() => onDelete(index)}
+                    />
+                  ) : null}
+                </td>
               </tr>
             ))}
           </tbody>

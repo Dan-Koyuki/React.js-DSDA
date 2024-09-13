@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const DataJabatan = ({onSubmit}) => {
+const DataJabatan = ({onSubmit, data}) => {
   const [formData, setFormData] = useState({
     namaJabatan: "",
     kodeJabatan: "",
@@ -25,19 +25,6 @@ const DataJabatan = ({onSubmit}) => {
 
   const handleSubmit = () => {
     onSubmit(formData);
-    setFormData({
-      namaJabatan: "",
-      kodeJabatan: "",
-      unitKerja: "",
-      jptUtama: "",
-      jptMadya: "",
-      jptPratama: "",
-      administrator: "",
-      pengawas: "",
-      pelaksana: "",
-      jabatanFungsional: "",
-      ikhtisarJabatan: "",
-    });
     console.log(formData);
   };
 
