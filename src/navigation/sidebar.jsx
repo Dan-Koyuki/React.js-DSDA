@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { TambahJabatan1 } from "../component/pop-up/tambahJabatan"
 
-const SideBar = ({onSelectMenuItem}) => {
+const SideBar = ({onSelectMenuItem, onPopUpSetting}) => {
   // State to track which menu item is open level 1
   const [openIndex, setOpenIndex] = useState(null);
   // State to track which menu item is open level 2
@@ -9,7 +10,6 @@ const SideBar = ({onSelectMenuItem}) => {
   // State to track the active menu item
   const [activeIndex, setActiveIndex] = useState(null);
   // State to track pop-up modal
-  const [modalActive, setModalActive] = useState(null);
 
   const menuStructure = [
     {
@@ -154,8 +154,8 @@ const SideBar = ({onSelectMenuItem}) => {
     >
       <div className="flex flex-col h-full">
         <div className="flex flex-col p-3 gap-4">
-          <div className="flex flex-row items-center justify-between border-b-[1px] border-gray-100">
-            <p className="w-3/4">Tambah Jabatan Baru</p>
+          <div className="flex flex-row justify-between border-b-[1px] border-gray-100 font-bold">
+            <button className="w-3/4" onClick={onPopUpSetting}>Tambah Jabatan</button>
           </div>
           {menuStructure && (
             <ul>
@@ -181,8 +181,8 @@ const SideBar = ({onSelectMenuItem}) => {
                   </div>
                   {openIndex === index && item.submenus && (
                     <>
-                      <div className="flex flex-row items-center justify-between border-b-[1px] border-gray-100">
-                        <p className="w-3/4">Tambah Jabatan Baru</p>
+                      <div className="pl-4 py-2 flex flex-row justify-between font-bold">
+                        <button className="w-3/4 text-wrap" onClick={() => (console.log('test'))}>Tambah sub-Jabatan</button>
                       </div>
                       <ul className="pl-4 py-2">
                         {item.submenus.map((submenu, subIndex) => (

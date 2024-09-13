@@ -4,10 +4,12 @@ import Header from "../navigation/header";
 import "../customScrollbar.css";
 import Content from "../component/desktop/content";
 import Mobile from "../component/mobile/mobileview";
+import TambahJabatan1 from "../component/pop-up/tambahJabatan";
 
 const Dashboard = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeMenu, setActiveMenu] = useState();
+  const [modalActive, setModalActive] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,6 +26,10 @@ const Dashboard = () => {
     return <Mobile />;
   }
 
+  const togglePopUp = () => {
+    setModalActive(!modalActive)
+  }
+
   return (
     <div className="flex flex-col h-screen">
       <div className={`sticky top-0 z-50 w-full`}>
@@ -34,13 +40,16 @@ const Dashboard = () => {
           className={`relative w-60 h-full overflow-y-auto overflow-x-hidden scrollbar-custom`}
           style={{ "--scrollbar-track-color": "#add8e6" }}
         >
-          <SideBar onSelectMenuItem={setActiveMenu}/>
+          <SideBar onSelectMenuItem={setActiveMenu} onPopUpSetting={togglePopUp}/>
         </div>
         <div className="flex-1 overflow-y-auto scrollbar-custom p-4">
           {/* Content */}
           <Content selectedMenuItem={activeMenu} />
         </div>
       </div>
+
+      {/* Pop-up Modal */}
+      {modalActive && <TambahJabatan1 modalSetting={modalActive} closeFunc={togglePopUp}/>}
     </div>
   );
 };
